@@ -1,1 +1,1 @@
-# gRPC - GO# grpc-golang
+# gRPC - GO

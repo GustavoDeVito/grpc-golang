@@ -1,0 +1,58 @@
+syntax = "proto3";
+option go_package = "github.com/GustavoDeVito/grpc-golang/proto/user";
+
+service UserService {
+    rpc FindAll(FindAllRequest) returns (FindAllResponse);
+    rpc FindOne(FindOneRequest) returns (FindOneResponse);
+    rpc Create(CreateRequest) returns (CreateResponse);
+    rpc Update(UpdateRequest) returns (UpdateResponse);
+    rpc Delete(DeleteRequest) returns (DeleteResponse);
+}
+
+message User {
+    int32 id = 1;
+    string name = 2;
+    bool status = 3;
+}
+
+message FindAllRequest {}
+
+message FindAllResponse {
+    repeated User users = 1;
+}
+
+message FindOneRequest {
+    int32 id = 1;
+}
+
+message FindOneResponse {
+    User user = 1;
+}
+
+message CreateRequest {
+    string name = 1;
+    bool status = 2;
+}
+
+message CreateResponse {
+    int32 id = 1;
+}
+
+message UpdateRequest {
+    int32 id = 1;
+    string name = 2;
+    bool status = 3;
+}
+
+message UpdateResponse {}
+
+message DeleteRequest {
+    int32 id = 1;
+}
+
+message DeleteResponse {}
+
+message Error {
+    int32 code = 1;
+    string message = 2;
+}
